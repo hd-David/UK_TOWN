@@ -112,4 +112,8 @@ if __name__ == '__main__':
     pp.pprint(meads_in_name(towns_file()))
     pp.pprint(duplicates_name(towns_file())) 
     pp.pprint(all_villages(towns_file()))
+<<<<<<< HEAD
     pp.pprint(towns_above_elevetion_of_100(towns_file(), elevations))
+=======
+    pp.pprint(towns_above_elevetion_of_100(towns_file(), elevations))
+>>>>>>> 70696b4a56ddf7d48cdf697114726d866691e222
