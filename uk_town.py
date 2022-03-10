@@ -4,8 +4,10 @@ from collections import defaultdict , Counter
 
 pp = pprint.PrettyPrinter(indent=4)
 
-""" This function opens the vsc file in the read mode and 
-    returning the list of dcitonaries as the output """
+""" This function opens the csv file in the read mode.
+    Input -  Data from csv file.
+    Output - The list of dicitonaries 
+"""
 def towns_file():
     with open("uk-towns-sample.csv", "r") as file:
         towns_reader = csv.DictReader(file)
@@ -19,9 +21,10 @@ def towns_file():
     return list_of_dict
    
 
-""" This function is finding the duplictates of names of towns. 
-Taking the list of dictionaries as an input and returing 
- a list of dulpicates towns as output"""
+""" This function is finding the duplictates names.
+    Input - list of dictionaries.  
+    Output - list of dulpicates names 
+"""
 def duplicates_name(list_of_dict):
     list_of_towns = []
     output_dict = {}
@@ -34,8 +37,10 @@ def duplicates_name(list_of_dict):
     return output_dict
  
    
-""" This function is filtering all the towns where (Meads) exist. 
-Giving the list of towns where Meads exist"""
+""" This function is filtering all the towns where (Meads) exist.
+    Input - list of dictionaries 
+    Output - The list of names where Meads exist
+"""
 def meads_in_name(list_of_dict):
     list_of_town_with_meads = []
     for town in list_of_dict:
@@ -44,7 +49,9 @@ def meads_in_name(list_of_dict):
     return list_of_town_with_meads       
 
 """ This function is finding all towns in between two latitude and longitude.
-   having two lists of dictionaries as input and and returning a list as an output. """
+    Input - Two lists of dictionaries.
+    Output -  list of towns that are inside the the the given latitude and longitude. 
+"""
 def cities_between_long_lat(coordinates, list_of_dict):
     list_of_towns = []
     for town in list_of_dict:
@@ -57,7 +64,9 @@ def cities_between_long_lat(coordinates, list_of_dict):
 
 
 """ This function is getting all towns that are above elevation of 100.
-   Recieving list of dictionary as an input and return a list of towns above 100"""
+    Input -  lists of dictionaries.
+    Output - list of towns above 100
+"""
 def towns_above_elevetion_of_100(list_of_dict, elevations):
     list_of_towns = []
     for town in list_of_dict:
@@ -66,9 +75,10 @@ def towns_above_elevetion_of_100(list_of_dict, elevations):
     return list_of_towns
 
 
-""" This function is filtering all towns that are found in the village.
-    Its receiving list of dictionaries as input and returning a list of dictionaries.
-    """
+""" This function is filtering names of all the villages.
+    Input - list of dictionaries.
+    Output - list of names whose town type is village
+"""
 def all_villages(list_of_dict):
     list_of_vilages = []
     for vilage in list_of_dict:
@@ -78,10 +88,12 @@ def all_villages(list_of_dict):
 
 
 """ This is the main function where the program starts executing .
-    The function defined above gets executed after this main, in short they are called in the main function"""
+    The function defined above gets executed after this main funtcion runs.
+"""
 if __name__ == '__main__':
-
-    coordinates =         [{ 
+   
+#   This list of dictionaries which used to find the towns within the coordinates 
+    coordinates =         [{                                  
                              "lat": 53.30935,
                               "long": -1.5331
                             },
@@ -89,15 +101,15 @@ if __name__ == '__main__':
                                   "lat": 53.21941,
                                   "long": -1.30514
                             }]
-
+# Below is the list of dictinary set as the benchmark for elevation
     elevations = [{
                     "max" : 100,
                     "min" : 20
                 }]
 
-    # pp.pprint(towns_file())                        
-    # pp.pprint(cities_between_long_lat(coordinates, towns_file()))
-    # pp.pprint(meads_in_name(towns_file()))
+    pp.pprint(towns_file())                        
+    pp.pprint(cities_between_long_lat(coordinates, towns_file()))
+    pp.pprint(meads_in_name(towns_file()))
     pp.pprint(duplicates_name(towns_file())) 
-    #pp.pprint(all_villages(towns_file()))
-    #pp.pprint(towns_above_elevetion_of_100(towns_file(), elevations))
+    pp.pprint(all_villages(towns_file()))
+    pp.pprint(towns_above_elevetion_of_100(towns_file(), elevations))
