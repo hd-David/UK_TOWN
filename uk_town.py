@@ -95,9 +95,9 @@ if __name__ == '__main__':
                     "min" : 20
                 }]
 
-    # pp.pprint(towns_file())                        
-    # pp.pprint(cities_between_long_lat(coordinates, towns_file()))
-    # pp.pprint(meads_in_name(towns_file()))
+    pp.pprint(towns_file())                        
+    pp.pprint(cities_between_long_lat(coordinates, towns_file()))
+    pp.pprint(meads_in_name(towns_file()))
     pp.pprint(duplicates_name(towns_file())) 
-    #pp.pprint(all_villages(towns_file()))
-    #pp.pprint(towns_above_elevetion_of_100(towns_file(), elevations))
+    pp.pprint(all_villages(towns_file()))
+    pp.pprint(towns_above_elevetion_of_100(towns_file(), elevations))
