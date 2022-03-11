@@ -79,10 +79,10 @@ def towns_above_elevetion_of_100(list_of_dict, elevations):
     Input - list of dictionaries.
     Output - list of names whose town type is village
 """
-def all_villages(list_of_dict):
+def all_villages(list_of_dict, town_types):
     list_of_vilages = []
     for vilage in list_of_dict:
-        list_of_vilages =  [vilage for vilage in list_of_dict if vilage['town_type']=="Village"]
+        list_of_vilages =  [vilage for vilage in list_of_dict if vilage['town_type']==town_types["town_ham"]]
         list_of_vilages.append(vilage["town_type"])
     return list_of_vilages
 
@@ -106,14 +106,22 @@ if __name__ == '__main__':
                     "max" : 100,
                     "min" : 20
                 }]
+# Below is the is the dictionary of types of town
+    town_types = {  
+                   "town_vil": "Village",
+                   "town_sub": "Suburban Area",
+                   "town_ham":  "Hamlet",
+                   "town_loc": "Locality",
+                   "town_town":  "Town",
+                   "town_cit": "City"
+
+                   }
+
 
     pp.pprint(towns_file())                        
     pp.pprint(cities_between_long_lat(coordinates, towns_file()))
     pp.pprint(meads_in_name(towns_file()))
     pp.pprint(duplicates_name(towns_file())) 
-    pp.pprint(all_villages(towns_file()))
-<<<<<<< HEAD
+    pp.pprint(all_villages(towns_file(), town_types))
     pp.pprint(towns_above_elevetion_of_100(towns_file(), elevations))
-=======
     pp.pprint(towns_above_elevetion_of_100(towns_file(), elevations))
->>>>>>> 70696b4a56ddf7d48cdf697114726d866691e222
