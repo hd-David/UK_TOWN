@@ -5,8 +5,8 @@ from collections import defaultdict , Counter
 pp = pprint.PrettyPrinter(indent=4)
 
 """ This function opens the csv file in the read mode.
-    Input -  Data from csv file.
-    Output - The list of dicitonaries 
+    Input -  is the csv file.
+    Output - the list of dicitonaries 
 """
 def towns_file():
     with open("uk-towns-sample.csv", "r") as file:
@@ -50,7 +50,7 @@ def meads_in_name(list_of_dict):
 
 """ This function is finding all towns in between two latitude and longitude.
     Input - Two lists of dictionaries.
-    Output -  list of towns that are inside the the the given latitude and longitude. 
+    Output - list of towns that are inside the the the given latitude and longitude. 
 """
 def cities_between_long_lat(coordinates, list_of_dict):
     list_of_towns = []
@@ -63,8 +63,8 @@ def cities_between_long_lat(coordinates, list_of_dict):
     return list_of_towns
 
 
-""" This function is getting all towns that are above elevation of 100.
-    Input -  lists of dictionaries.
+""" This function is finding all towns that are above elevation of 100.
+    Input -  list of dictionaries and an benchmark number for elevation.
     Output - list of towns above 100
 """
 def towns_above_elevetion_of_100(list_of_dict, elevations):
@@ -93,14 +93,14 @@ def all_villages(list_of_dict, town_types):
 if __name__ == '__main__':
    
 #   This list of dictionaries which used to find the towns within the coordinates 
-    coordinates =         [{                                  
-                             "lat": 53.30935,
-                              "long": -1.5331
-                            },
-                             {
-                                  "lat": 53.21941,
-                                  "long": -1.30514
-                            }]
+    coordinates = [{                                  
+                     "lat": 53.30935,
+                     "long": -1.5331
+                    },
+                   {
+                     "lat": 53.21941,
+                     "long": -1.30514
+                   }]
 # Below is the list of dictinary set as the benchmark for elevation
     elevations = [{
                     "max" : 100,
